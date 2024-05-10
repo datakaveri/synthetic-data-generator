@@ -1,0 +1,7 @@
+Important Variables from ANES:
+
+V201510 -> highest level of education, if value >= 4 (college: Y)
+V201600 -> sex, 1=M, 2=F
+V201029 -> who they voted for, 1=Biden, 2=Trump
+V201033 -> who they will vote for, 1=Biden, 2=Trump
+V201507x -> age, 80= 80 or older
