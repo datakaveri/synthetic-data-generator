@@ -51,18 +51,7 @@ def preprocc(data):
     return data
 
 
-new_data = preprocc(data)
-print(data.shape)
-#working_data = new_data.drop("age_bins",axis=1)
-working_data = new_data
-print(working_data.shape)
-
-'''male_college = working_data[(working_data["sex"]==1) & (working_data["college"]==1)]    
-male_noncollege = working_data[(working_data["sex"]==1) & (working_data["college"]==0)]
-female_college = working_data[(working_data["sex"]==2) & (working_data["college"]==1)]
-female_noncollege = working_data[(working_data["sex"]==2) & (working_data["college"]==0)]
-
-mc, mnc, fc, fnc = male_college.shape[0], male_noncollege.shape[0], female_college.shape[0], female_noncollege.shape[0]'''
+working_data = preprocc(data)
 
 sexvals = [1,2]
 colvals = [0,1]
@@ -131,13 +120,6 @@ def generate_originalproportions(n):
     return pd.DataFrame(np.array(output), columns = ["sex","college","age","vote"])
 
 result = generate_originalproportions(50000)
+
 print(result)
-
-'''counts_mc = np.array(male_college.vote.value_counts())
-print(counts_mc)
-dp_counts_mc = [laplace_mech(c, 1, 0.1) for c in counts_mc]
-dp_probs_mc = dp_counts_mc/np.sum(dp_counts_mc)
-
-
-def gen_random(k):
-    random_voters_mc = np.random.choice([1,2],n,dp_probs_mc)'''
+result.to_csv("synthVoterData.csv")
